@@ -1,0 +1,40 @@
+const express = require("express");
+const router = express.Router();
+const multer = require("multer");
+const path = require("path");
+const db = require("../config/database");
+const fs = require("fs");
+
+// Ensure uploads folder exists
+const uploadDir = path.join(__dirname, "../uploads");
+if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
+
+// Multer setup for image uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, uploadDir),
+  filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
+});
+const upload = multer({ storage });
+
+// POST /api/addschool
+router.post("/", upload.single("image"), (req, res) => {
+  const { name, address, city, state, contact, email_id } = req.body;
+
+  if (!name || !address || !city || !state || !contact || !email_id) {
+    return res.status(400).json({ error: "All fields are required" });
+  }
+
+  const image = req.file ? "/uploads/" + req.file.filename : null;
+
+  const sql = `
+    INSERT INTO schools (name, address, city, state, contact, email_id, image)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  db.query(sql, [name, address, city, state, contact, email_id, image], (err, result) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ message: "School added successfully!", schoolId: result.insertId });
+  });
+});
+
+module.exports = router;

@@ -1,0 +1,277 @@
+﻿/* App.css - Modern Stylish UI */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonts & Base */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f9fafe;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0e4ad6;
+  text-decoration: none;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-link {
+  color: #d72626;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffd700;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #da7c7c;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(120deg, #f0f8ff, #dbe6ff);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.hero-content .highlight {
+  color: #007bff;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons .btn {
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: #fff;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.35);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.btn-secondary:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+/* Features Section */
+.features {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #0a1f44;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  color: #007bff;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+}
+
+.feature-card p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.feature-card:hover p {
+  color: #007bff;
+}
+
+/* Page Styles */
+.page {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.page h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.page p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+.contact-form button {
+  max-width: 200px;
+}
+
+/* Footer */
+.footer {
+  background: #0a1f44;
+  color: #fff;
+  padding: 25px 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.footer a {
+  color: #ffd700;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+    flex-direction: column;
+    gap: 0;
+    padding: 15px 0;
+    border-radius: 0 0 15px 15px;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .features h2 {
+    font-size: 24px;
+  }
+}
